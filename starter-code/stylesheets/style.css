@@ -1,0 +1,101 @@
+/* skyColor: #2DB0FE;
+seaColor: #0680CB;
+ropeColor: #355A60
+platformColor: #CA794E; */
+
+
+
+
+body {
+    border : 1px solid black;
+    background: gray;
+}
+
+div, img{
+    /* border : 1px solid black; */
+}
+
+#sky{
+    position: relative;
+    width: 99vw;
+    height: 80vh;
+    background: #2DB0FE;
+}
+
+#shuttle{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+}
+
+#receiver{
+    position: absolute;
+    width: 450px;
+    height: 150px;
+    top: 80%;
+    left: 30%;
+}
+
+#ship{
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+}
+
+#rope{
+    position: absolute;
+    width:150px;
+    height: 8px;
+    background: #355A60;
+    top: 77%;
+    left: 25%;
+}
+
+#platform {
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    width: 200px;
+    height: 25px;
+    background: #CA794E;
+}
+
+#roadcorn{
+    position: absolute;
+    top: -110%;
+    left: 85%;
+}
+
+#land{
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    top: 77%;
+    left: 0%;
+}
+
+#island{
+    position: absolute;
+    left:0%;
+    bottom:0%;
+}
+
+#penguin{
+    position: absolute;
+    left: 15%;
+    bottom: 30%;
+}
+
+
+#sea{
+    width: 99vw;
+    height: 18vh;
+    background:  #0680CB;
+}
+
+
+/* .flex{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+} */
