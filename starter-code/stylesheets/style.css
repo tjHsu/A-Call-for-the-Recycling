@@ -17,7 +17,7 @@ div, img{
 
 #sky{
     position: relative;
-    width: 99vw;
+    width: 98vw;
     height: 80vh;
     background: #2DB0FE;
 }
@@ -88,8 +88,8 @@ div, img{
 
 
 #sea{
-    width: 99vw;
-    height: 18vh;
+    width: 98vw;
+    height: 16vh;
     background:  #0680CB;
 }
 
