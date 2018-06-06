@@ -50,13 +50,17 @@ function moveFn(){
     //     });
 }
 
+function gameRestart(){
+    location.reload();
+}
+
 function shuttleUp(){
     // var div=document.getElementById("shuttle");
     // console.log(document.getElementById("shuttle")._gsTransform.rotation);
     // console.log(document.getElementById("shuttle")._gsTransform);
     var rad = Math.PI*document.getElementById("shuttle")._gsTransform.rotation/180
-    var xMove= 50*Math.sin(rad);
-    var yMove= 50*Math.cos(rad);
+    var xMove= 100*Math.sin(rad);
+    var yMove= 100*Math.cos(rad);
     var xCurr=document.getElementById("shuttle")._gsTransform.x;
     var yCurr=document.getElementById("shuttle")._gsTransform.y;
     // var x= 
@@ -112,19 +116,65 @@ function shipRight(){
 }
 
 
+
+
 function shuttleDown(){
 	// var div=document.getElementById("shuttle");
 
     TweenMax.to($('#shuttle'), 1, {
         x: '-=0', // Tween to the current x value minus 50
-        y: '+=5', // Tween to the current y value plus 50
+        y: '+=15', // Tween to the current y value plus 50
         // onComplete: myFunction,
         ease:Back.easeOut
         });
+    var shuttle=document.getElementById("shuttle");
+    var platform=document.getElementById("platform");
+    var sea=document.getElementById("sea");
+    if (isCollide (shuttle,platform)){
+        $("h1").html( "Hoooray!!" );
+        TweenMax.to($('#shuttle'),1,{
+            css:{scale:1,rotation:'0'},
+            delay:0,
+            ease:Expo.easeOut
+            });
+        TweenMax.to($('#shuttle'), 1, {
+            x: '+=0', // Tween to the current x value minus 50
+            y: '-=3', // Tween to the current y value plus 50
+            // onComplete: window.reload(),
+            ease:Back.easeOut
+            });
+        clearInterval(dropDown);
+    };
+    if (isCollide(shuttle,sea)){
+
+        $("h1").html( "Ooooops!!" );
+        TweenMax.to($('#shuttle'),2,{
+            css:{scale:1,rotation:'90'},
+            delay:0,
+            // onComplete: window.reload(),
+            ease:Expo.easeOut
+            });
+        TweenMax.to($('#shuttle'), 2, {
+            x: '+=0', // Tween to the current x value minus 50
+            y: '+=50', // Tween to the current y value plus 50
+            
+            ease:Back.easeOut
+            });
+        clearInterval(dropDown);
+        // var btn = document.createElement("BUTTON");
+        // var t = document.createTextNode("Restart");
+        // btn.appendChild(t);
+        var r= $('<br> <button type="button" class="btn btn-primary" onclick="gameRestart()">Restart</button>');
+        $("h1").append(r);
+    }
+
     // console.log("down!down!");
 }
 
-setInterval(shuttleDown,50);
+
+
+
+var dropDown = setInterval(shuttleDown,50);
 
 
 var keys = {};

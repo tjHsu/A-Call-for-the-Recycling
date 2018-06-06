@@ -15,6 +15,14 @@ div, img{
     /* border : 1px solid black; */
 }
 
+h1{
+    position: fixed;
+    top: 39vh;
+    left: 42%;
+    text-align: center;
+}
+
+
 #sky{
     position: relative;
     width: 98vw;
