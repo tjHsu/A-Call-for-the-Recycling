@@ -251,10 +251,20 @@ $(document).keyup(function (e) {
 //     }
 // });
 
-$(document).on("taphold",function(){
-    console.log("sky was touched");
-    shuttleUp();
-});
+// $(document).on("taphold",function(){
+//     console.log("sky was touched");
+//     shuttleUp();
+// });
+var div=document.getElementById("sky");
+div.addEventListener('touchstart', function(ev) {
+    // Iterate through the touch points that were activated
+    // for this element and process each event 'target'
+        shuttleUp();
+        console.log("touchtouch");
+    for (var i=0; i < ev.targetTouches.length; i++) {
+      process_target(ev.targetTouches[i].target);
+    }
+  }, false);
   
 
 // ///////////////////
