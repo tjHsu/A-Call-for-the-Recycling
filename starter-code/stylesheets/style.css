@@ -19,16 +19,24 @@ div, img{
 h1{
     position: fixed;
     top: 39vh;
-    left: 40%;
+    left: 40vw;
     text-align: center;
     color: white;
 }
 
-/* @media (min-width:800px) {
+@media (min-width:800px) {
     .btn-danger{
         visibility: hidden;
     }
-}   */
+
+    #receiver{
+        position: absolute;
+        width: 450px;
+        height: 150px;
+        top: 65vh;
+        left: 10vw;
+    }
+}  
 
 .btn-danger.btn-goup{
     position: fixed;
@@ -85,8 +93,8 @@ h1{
 
 #shuttle{
     position: absolute;
-    top: 15%;
-    left: 50%;
+    top: 15vh;
+    left: 50vw;
     transform: rotate(120deg);
 }
 
@@ -94,8 +102,8 @@ h1{
     position: absolute;
     width: 450px;
     height: 150px;
-    top: 80%;
-    left: 65%;
+    top: 65vh;
+    left: 65vw;
 }
 
 #ship{
@@ -132,7 +140,8 @@ h1{
     position: absolute;
     width: 200px;
     height: 150px;
-    top: 77%;
+    /* top: 77%; */
+    top: 63vh;
     left: 0%;
 }
 
@@ -150,6 +159,9 @@ h1{
 
 
 #sea{
+    position: fixed;
+    top: 80vh;
+    z-index: -1;
     width: 98vw;
     height: 16vh;
     background:  #0680CB;
