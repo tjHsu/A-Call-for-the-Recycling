@@ -8,8 +8,8 @@ platformColor: #CA794E; */
 
 
 body {
-    border : 1px solid black;
-    background: gray;
+    /* border : 1px solid black; */
+    /* background: gray; */
 }
 
 div, img{
@@ -86,7 +86,7 @@ h1{
 
 #sky{
     position: relative;
-    width: 98vw;
+    width: 99vw;
     height: 80vh;
     background: #2DB0FE;
 }
@@ -162,7 +162,7 @@ h1{
     position: fixed;
     top: 80vh;
     z-index: -1;
-    width: 98vw;
+    width: 99vw;
     height: 16vh;
     background:  #0680CB;
 }
