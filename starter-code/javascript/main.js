@@ -124,8 +124,8 @@ function moveFn(button){
 function shuttleUp(){
     // var div=document.getElementById("shuttle");
     var rad = Math.PI*document.getElementById("shuttle")._gsTransform.rotation/180
-    var xMove= 100*Math.sin(rad);
-    var yMove= 100*Math.cos(rad);
+    var xMove= 150*Math.sin(rad);
+    var yMove= 150*Math.cos(rad);
     var xCurr=document.getElementById("shuttle")._gsTransform.x;
     var yCurr=document.getElementById("shuttle")._gsTransform.y;
     TweenMax.to($('#shuttle'), 5, {
@@ -177,7 +177,6 @@ function shuttleDown(){
         ease:Back.easeOut
         });
 }
-
 
 
 
@@ -238,6 +237,33 @@ $(document).keyup(function (e) {
     delete keys[e.which];
 });
 
+// ////click part/////
+
+// $(document).click(function(e) {
+//     var divWidth = $("#sky").width();        
+//     var clickX = e.clientX;
+//     if (clickX > divWidth/2) {
+//         console.log("sky was clicked on the right");
+//         // shuttleAnticlock();
+//     } else {
+//         console.log("sky was clicked on the left");
+//         shuttleClock();
+//     }
+// });
+
+$(document).on("taphold",function(){
+    console.log("sky was touched");
+    shuttleUp();
+});
+  
+
+// ///////////////////
+
+
+
+
+
+
 }
 
 function pageReload(button) {
@@ -268,6 +294,9 @@ function landingPrepare() {
         ease:Expo.easeOut
         });
 }
+
+
+
 
 
 function gameRestart(button){
@@ -359,6 +388,29 @@ function checkGameOver(){
 
 }
 
+///////////////////////////////////////
+/////////////touch event///////////////
+///////////////////////////////////////
+// window.addEventListener('mousedown', function() {
+//     $("h1").html( "Touch Touch" );
+    
+//     // the user touched the screen!
+//   });
+
+//   $("#sky").click(function(e) {
+//     var divWidth = $("#sky").width();        
+//     var clickX = e.clientX;
+//     if (clickX > divWidth/2) {
+//         console.log("sky was clicked on the right");
+//         shuttleClock();
+//     } else {
+//         console.log("sky was clicked on the left");
+//         shuttleAntiClock();
+//     }
+// });
+///////////////////////////////////////
+///////////////////////////////////////
+///////////////////////////////////////
 
 
 
