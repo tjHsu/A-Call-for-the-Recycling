@@ -1,4 +1,5 @@
 /* skyColor: #2DB0FE;
+spaceSkyColor: #343A3E
 seaColor: #0680CB;
 ropeColor: #355A60
 platformColor: #CA794E; */
@@ -20,8 +21,39 @@ h1{
     top: 39vh;
     left: 40%;
     text-align: center;
+    color: white;
 }
 
+.asteroid.one{
+    position: fixed;
+    right: -50%;
+    bottom: -10%;
+
+}
+
+.asteroid.two{
+    position: fixed;
+    right: 50%;
+    bottom: -10%;
+}
+
+.asteroid.three{
+    position: fixed;
+    right: -10%;
+    bottom: -10%;
+}
+
+.ufo.one{
+    position: fixed;
+    right: -10%;
+    bottom: -30%;
+}
+
+.ufo.two{
+    position: fixed;
+    right: -10%;
+    bottom: 40%;
+}
 
 #sky{
     position: relative;
@@ -32,8 +64,9 @@ h1{
 
 #shuttle{
     position: absolute;
-    top: 10%;
+    top: 15%;
     left: 50%;
+    transform: rotate(120deg);
 }
 
 #receiver{

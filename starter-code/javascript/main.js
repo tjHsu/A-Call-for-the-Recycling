@@ -1,11 +1,96 @@
 var dropDown=null;
-// var rect = document.getElementById("shuttle").getBoundingClientRect();
-// var xOri = (rect.right+rect.left)*0.5;
-// var yOri = (rect.top+rect.bottom)*0.5;
-// var xOri=0;
-// var yOri=0;
+
+//////////////////////////////
+//////set begin animationg////
+//////////////////////////////
+    TweenMax.to($('.asteroid.one'), 5, {
+        x: '-=2000', 
+        y: '-=1000',
+        repeat: -1, 
+        })
+    
+    TweenMax.to($('.asteroid.two'), 9, {
+        x: '-=2000', 
+        y: '-=1000',
+        repeat: -1, 
+        })
+
+    TweenMax.to($('.asteroid.three'), 4, {
+        x: '-=2000', 
+        y: '-=1000',
+        repeat: -1, 
+        })
+    TweenMax.to($('.ufo.one'), 10, {
+        x: '-=2000', 
+        y: '-=1000',
+        rotation: '180',
+        repeat: 1, 
+        })
+    TweenMax.to($('.ufo.two'), 20, {
+        x: '-=2000', 
+        y: '-=1000',
+        // rotation: '-90',
+        repeat: -1, 
+        })
+    TweenMax.to($('#shuttle'), 0.2, {
+        x: '-=0', 
+        y: '-=5',
+        // rotation: '+5',
+        repeat: -1, 
+        })
+    TweenMax.to($('#shuttle'), 0.2, {
+        x: '+=0', 
+        y: '+=5',
+        // rotation: '-5',
+        delay: 0.2,
+        repeat: -1, 
+        })
+    
+
+        // CustomWiggle.create("Wiggle.random", {wiggles:wiggles, type:"random"});
+
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+
+
+
+$('#sky').css('background','#343A3E');
+$('#sea').css('background','#343A3E');
+$('#ship').hide();
+$('#rope').hide();
+$('#platform').hide();
+$('#roadcorn').hide();
+$('#island').hide();
+$('#penguin').hide();
+
+
+
+
 
 function moveFn(button){
+    $('#sky').css('transition','all 2s ease-in');
+    $('#sky').css('background','#2DB0FE');
+    $('#sea').css('transition','all 3s ease-in');
+    $('#sea').css('background','#0680CB');
+    // transition: all .2s ease-in;
+
+    $('#ship').show();
+    $('#rope').show();
+    $('#platform').show();
+    $('#roadcorn').show();
+    $('#island').show();
+    $('#penguin').show();
+    $('.asteroid').hide();  
+    $('.ufo').hide();
+    TweenMax.to($('#shuttle'),3,{
+        css:{scale:1,rotation:'0'},
+        delay:0,
+        ease:Expo.easeOut
+        });
+
+    // $('.asteroid.')
+    // $('.asteroid.')
     // xOri=document.getElementById("shuttle")._gsTransform.x;
     // yOri=document.getElementById("shuttle")._gsTransform.y;
     $("h1").html( "Let's go" );
@@ -159,12 +244,36 @@ function pageReload(button) {
     location.reload();
 }
 
+function landingPrepare() {
+    var xCurr=document.getElementById("shuttle")._gsTransform.x;
+    var yCurr=document.getElementById("shuttle")._gsTransform.y;
+    var angle = 180*Math.tanh(xCurr/-yCurr) / (Math.PI) ;
+
+
+
+    TweenMax.to($('#shuttle'),1,{
+        css:{scale:1,rotation:angle},
+        delay:0,
+        ease:Expo.easeOut
+        });
+    TweenMax.to($('#shuttle'), 3, {
+        x: 0, 
+        y: 0, 
+        delay: 1,
+        ease:Back.easeOut
+        });
+    TweenMax.to($('#shuttle'),2,{
+        css:{scale:1,rotation:0},
+        delay:3,
+        ease:Expo.easeOut
+        });
+}
+
+
 function gameRestart(button){
     // location.reload();
     var xCurr=document.getElementById("shuttle")._gsTransform.x;
     var yCurr=document.getElementById("shuttle")._gsTransform.y;
-    // var xDiff=xOri-xCurr;
-    // var yDiff=yOri-yCurr;
     var angle = 180*Math.tanh(xCurr/-yCurr) / (Math.PI) ;
 
 
