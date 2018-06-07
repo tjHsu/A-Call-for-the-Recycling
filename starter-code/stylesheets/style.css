@@ -24,6 +24,27 @@ h1{
     color: white;
 }
 
+/* @media (min-width:800px) {
+    .btn-danger{
+        visibility: hidden;
+    }
+}   */
+
+.btn-danger.btn-goup{
+    position: fixed;
+    top: 10vh;
+    left: 5vw;
+}
+
+.btn-danger.btn-gorotate{
+    position: fixed;
+    top: 10vh;
+    right: 5vw;
+}
+
+
+
+
 .asteroid.one{
     position: fixed;
     right: -50%;
