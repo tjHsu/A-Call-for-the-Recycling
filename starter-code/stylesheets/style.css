@@ -18,7 +18,7 @@ div, img{
 h1{
     position: fixed;
     top: 39vh;
-    left: 42%;
+    left: 40%;
     text-align: center;
 }
 
@@ -41,7 +41,7 @@ h1{
     width: 450px;
     height: 150px;
     top: 80%;
-    left: 90%;
+    left: 65%;
 }
 
 #ship{
