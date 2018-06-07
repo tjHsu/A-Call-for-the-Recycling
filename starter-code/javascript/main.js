@@ -462,3 +462,52 @@ function checkGameOver(){
     //     ease:Expo.easeOut
     //     });
     /////////////////////////////////
+
+
+function shuttleUp(){
+    // var div=document.getElementById("shuttle");
+    var rad = Math.PI*document.getElementById("shuttle")._gsTransform.rotation/180
+    var xMove= 150*Math.sin(rad);
+    var yMove= 150*Math.cos(rad);
+    var xCurr=document.getElementById("shuttle")._gsTransform.x;
+    var yCurr=document.getElementById("shuttle")._gsTransform.y;
+    TweenMax.to($('#shuttle'), 5, {
+        css:{x:xCurr+xMove, y:yCurr-yMove},
+        ease:Back.easeOut
+        });
+}
+
+function shuttleAnticlock() {
+    TweenMax.to($('#shuttle'),1,{
+        css:{scale:1,rotation:'-=5'},
+        delay:0,
+        ease:Expo.easeOut
+        });
+}
+
+function shuttleClock() {
+    TweenMax.to($('#shuttle'),1,{
+        css:{scale:1,rotation:'+=5'},
+        delay:0,
+        ease:Expo.easeOut
+        });
+}
+
+
+function shipLeft(){
+	// var div=document.getElementById("shuttle");
+    TweenMax.to($('#receiver'), 1, {
+        x: '-=50', 
+        y: '+=0', 
+        ease:Back.easeOut
+        });
+}
+
+function shipRight(){
+	// var div=document.getElementById("shuttle");
+    TweenMax.to($('#receiver'), 1, {
+        x: '+=50', 
+        y: '+=0', 
+        ease:Back.easeOut
+        });
+}
