@@ -140,11 +140,12 @@ function moveFn(button){
         })
 
 
-    TweenMax.to($('#shuttle'),3,{
-        css:{scale:1,rotation:'0'},
+    TweenMax.to($('#shuttle'),5,{
+        css:{rotation:'0'},
         delay:0,
         ease:Expo.easeOut
         });
+
 
     // $('.asteroid.')
     // $('.asteroid.')
@@ -591,3 +592,63 @@ function shipRight(){
         ease:Back.easeOut
         });
 }
+
+
+var keys = {};
+$(document).keydown(function (e) {
+    keys[e.which] = true;
+    var code = 0;
+    if (keys[37]==true && keys[39]==true && keys[65]==true){
+        shipLeft();
+        shuttleUp();    
+    } else if (keys[37]==true && keys[39]==true && keys[68]==true){
+        shipRight();
+        shuttleUp();    
+    } else if (keys[37]==true && keys[39]==true) {
+        shuttleUp();    
+    } else if (keys[37]==true && keys[65]==true){
+        shipLeft();
+        shuttleClock();
+    } else if (keys[37]==true && keys[68]==true){
+        shipRight();
+        shuttleClock();
+    } else if (keys[39]==true && keys[65]==true){
+        shipLeft();
+        shuttleAnticlock();
+    } else if (keys[39]==true && keys[68]==true){
+        shipRight();
+        shuttleAnticlock();
+    } else {
+        code = e.which;
+     
+        switch (code) {
+            
+            case 37:
+                shuttleClock();
+                break;
+            
+            case 39:
+                shuttleAnticlock();
+                break;
+        
+            case 65:
+                shipLeft();
+                break;
+            
+            case 68:
+                shipRight();
+                break;
+
+            default:
+                break;
+        }
+    }
+});
+
+$(document).keyup(function (e) {
+    delete keys[e.which];
+    if (e.which!=65&&e.which!=68) {
+        soundRocket.pause();    
+    }
+    
+});
