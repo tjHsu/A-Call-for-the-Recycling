@@ -165,6 +165,23 @@ span{
     transform: rotate(120deg);
 }
 
+#leftfire{
+    position: absolute;
+    top:95%;
+    left:10%;
+    transform: rotate(180deg);
+    
+
+}
+
+#rightfire{
+    position: absolute;
+    top:95%;
+    right:10%;
+    transform: rotate(180deg);
+
+}
+
 #receiver{
     position: absolute;
     width: 450px;
@@ -215,7 +232,7 @@ span{
 #island{
     position: absolute;
     left:0%;
-    bottom:0%;
+    bottom:15%;
 }
 
 #penguin{

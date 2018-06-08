@@ -86,7 +86,8 @@ $('#roadcorn').hide();
 $('#island').hide();
 $('#penguin').hide();
 $('.cloud').hide();
-
+$('#leftfire').hide();
+$('#rightfire').hide();
 
 
 
@@ -556,6 +557,15 @@ function shuttleUp(){
         css:{x:xCurr+xMove, y:yCurr-yMove},
         ease:Back.easeOut
         });
+        // $('#leftfire').fadeIn(200);
+        // $('#rightfire').fadeIn(200);
+        $('#leftfire').show();
+        $('#rightfire').show();
+        setTimeout(function () {
+            $('#leftfire').fadeOut(1000);
+            $('#rightfire').fadeOut(1000);
+        }, 5000);
+    
 }
 
 function shuttleAnticlock() {
@@ -564,6 +574,11 @@ function shuttleAnticlock() {
         delay:0,
         ease:Expo.easeOut
         });
+    $('#leftfire').hide();
+    $('#rightfire').fadeIn(200);
+    setTimeout(function () {
+        $('#rightfire').fadeOut(1000);
+    }, 1000);
 }
 
 function shuttleClock() {
@@ -572,6 +587,11 @@ function shuttleClock() {
         delay:0,
         ease:Expo.easeOut
         });
+        $('#leftfire').fadeIn(200);
+        $('#rightfire').hide();
+        setTimeout(function () {
+            $('#leftfire').fadeOut(1000);
+        }, 1000);
 }
 
 
