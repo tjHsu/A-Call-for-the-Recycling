@@ -16,12 +16,18 @@ div, img{
     /* border : 1px solid black; */
 }
 
+button{
+    z-index: 3;
+}
+
 h1{
     position: fixed;
     top: 39vh;
     left: 40vw;
     text-align: center;
     color: white;
+    z-index: 2;
+    /* text-shadow: #355A60; */
 }
 
 @media (min-width:800px) {
@@ -70,6 +76,28 @@ h1{
     position: fixed;
     right: -10%;
     bottom: -10%;
+}
+
+.cloud.one{
+    position: fixed;
+    right: 30%;
+    bottom: 40%;
+    z-index: 1;
+
+}
+
+.cloud.two{
+    position: fixed;
+    right: 70%;
+    bottom: 70%;
+    z-index: 1;
+}
+
+.cloud.three{
+    position: fixed;
+    right: 80%;
+    bottom: 60%;
+    z-index: 1;
 }
 
 .ufo.one{

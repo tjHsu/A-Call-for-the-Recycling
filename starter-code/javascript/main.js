@@ -1,5 +1,18 @@
 var dropDown=null;
 
+var soundApollo13 = new Audio("sound/Apollo-13-Houston-Weve-Had-a-Problem.m4a"); // buffers automatically when created
+var soundRocket = new Audio("sound/Delta-IV-Launch.m4a");
+var soundRocket2 = new Audio("sound/Airplane_In_Flight.mp3");
+var soundWhistle = new Audio("sound/Toy-Train-Whistle-01.m4a");
+var soundBeep = new Audio("sound/Quindar-Sound-1.m4a");
+// var soundBeep= document.getElementById("beep");
+
+soundBeep.loop = true;
+soundBeep.playbackRate = 0.9;
+soundBeep.play();
+soundApollo13.volume-=0.02;
+
+
 //////////////////////////////
 //////set begin animationg////
 //////////////////////////////
@@ -63,12 +76,23 @@ $('#platform').hide();
 $('#roadcorn').hide();
 $('#island').hide();
 $('#penguin').hide();
+$('.cloud').hide();
 
 
 
 
 
 function moveFn(button){
+    soundApollo13.pause();
+
+    setTimeout(function () {
+            soundBeep.pause();
+            // soundApollo13.pause();
+    }, 4000);
+    setInterval(function () {
+        soundBeep.volume-=0.02;
+        // soundApollo13.volume-=0.02;
+    }, 100);    
     $('#sky').css('transition','all 2s ease-in');
     $('#sky').css('background','#2DB0FE');
     $('#sea').css('transition','all 3s ease-in');
@@ -81,8 +105,30 @@ function moveFn(button){
     $('#roadcorn').show();
     $('#island').show();
     $('#penguin').show();
+    $('.cloud').fadeIn(6000);
+    // $('.cloud').show();
+ 
     $('.asteroid').hide();  
     $('.ufo').hide();
+    TweenMax.to($('.cloud.one'), 100, {
+        x: '+=500', 
+        y: '+=100',
+        repeat: -1, 
+        })
+    
+    TweenMax.to($('.cloud.two'), 100, {
+        x: '+=500', 
+        y: '+=100',
+        repeat: -1, 
+        })
+
+    TweenMax.to($('.cloud.three'), 100, {
+        x: '+=500', 
+        y: '+=100',
+        repeat: -1, 
+        })
+
+
     TweenMax.to($('#shuttle'),3,{
         css:{scale:1,rotation:'0'},
         delay:0,
@@ -116,7 +162,7 @@ function moveFn(button){
         y: '+=10', 
         ease:Back.easeOut
         });    
-    button.style.visibility = "hidden";
+    button.visibility = "hidden";
 
 
 
@@ -132,6 +178,11 @@ function shuttleUp(){
         css:{x:xCurr+xMove, y:yCurr-yMove},
         ease:Back.easeOut
         });
+    soundRocket.play();
+    // setTimeout(function () {
+    //     soundRocket.pause(); // very inaccurate
+    // }, 5000);
+    
 }
 
 function shuttleAnticlock() {
@@ -140,6 +191,11 @@ function shuttleAnticlock() {
         delay:0,
         ease:Expo.easeOut
         });
+    soundRocket.play();
+    // setTimeout(soundRocket.pause(),3000);
+    // setTimeout(function () {
+    //     soundRocket.pause(); // very inaccurate
+    // }, 3000);
 }
 
 function shuttleClock() {
@@ -148,6 +204,7 @@ function shuttleClock() {
         delay:0,
         ease:Expo.easeOut
         });
+    soundRocket.play();
 }
 
 
@@ -158,6 +215,7 @@ function shipLeft(){
         y: '+=0', 
         ease:Back.easeOut
         });
+    soundWhistle.play();
 }
 
 function shipRight(){
@@ -167,6 +225,8 @@ function shipRight(){
         y: '+=0', 
         ease:Back.easeOut
         });
+    soundWhistle.play();
+            
 }
 
 
@@ -235,6 +295,10 @@ $(document).keydown(function (e) {
 
 $(document).keyup(function (e) {
     delete keys[e.which];
+    if (e.which!=65&&e.which!=68) {
+        soundRocket.pause();    
+    }
+    
 });
 
 // ////click part/////
@@ -255,16 +319,16 @@ $(document).keyup(function (e) {
 //     console.log("sky was touched");
 //     shuttleUp();
 // });
-var div=document.getElementById("sky");
-div.addEventListener('touchstart', function(ev) {
-    // Iterate through the touch points that were activated
-    // for this element and process each event 'target'
-        shuttleUp();
-        console.log("touchtouch");
-    for (var i=0; i < ev.targetTouches.length; i++) {
-      process_target(ev.targetTouches[i].target);
-    }
-  }, false);
+// var div=document.getElementById("sky");
+// div.addEventListener('touchstart', function(ev) {
+//     // Iterate through the touch points that were activated
+//     // for this element and process each event 'target'
+//         shuttleUp();
+//         console.log("touchtouch");
+//     for (var i=0; i < ev.targetTouches.length; i++) {
+//       process_target(ev.targetTouches[i].target);
+//     }
+//   }, false);
   
 
 // ///////////////////
@@ -378,7 +442,8 @@ function checkGameOver(){
     };
 
     if (isCollide(shuttle,sea)){
-
+       setTimeout(soundApollo13.play(),5000);
+        
         $("h1").html( "Ooooops!!" );
         TweenMax.to($('#shuttle'),2,{
             css:{scale:1,rotation:'90'},
