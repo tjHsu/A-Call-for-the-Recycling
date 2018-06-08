@@ -9,8 +9,17 @@ var soundBeep = new Audio("sound/Quindar-Sound-1.m4a");
 
 soundBeep.loop = true;
 soundBeep.playbackRate = 0.9;
+soundBeep.volume -=0.2;
 soundBeep.play();
-soundApollo13.volume-=0.02;
+soundApollo13.volume-=0.2;
+//////////////////////////////
+//////set begin introduction//
+//////////////////////////////
+
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+
 
 
 //////////////////////////////
@@ -90,13 +99,14 @@ function moveFn(button){
             // soundApollo13.pause();
     }, 4000);
     setInterval(function () {
-        soundBeep.volume-=0.02;
+        soundBeep.volume-=0.05;
         // soundApollo13.volume-=0.02;
     }, 100);    
     $('#sky').css('transition','all 2s ease-in');
     $('#sky').css('background','#2DB0FE');
     $('#sea').css('transition','all 3s ease-in');
     $('#sea').css('background','#0680CB');
+    
     // transition: all .2s ease-in;
 
     $('#ship').show();
@@ -110,6 +120,7 @@ function moveFn(button){
  
     $('.asteroid').hide();  
     $('.ufo').hide();
+    $('.card').hide();
     TweenMax.to($('.cloud.one'), 100, {
         x: '+=500', 
         y: '+=100',
@@ -435,7 +446,7 @@ function checkGameOver(){
             ease:Back.easeOut
             });
         clearInterval(dropDown);
-        var r= $('<br> <button type="button" class="btn btn-warning" onclick="pageReload(this)">Play Again</button>');
+        var r= $('<br> <button type="button" class="btn btn-warning" onclick="pageReload(this)">Press <span id="again">SPACEBAR</span> to play Again</button>');
         var l= $('<br> <button type="button" class="btn btn-info" onclick="window.location=\'https://github.com/tjHsu/A-Call-for-the-Recycling\';">Visit Github Repo</button>')
         $("h1").append(r);
         $("h1").append(l);
@@ -457,11 +468,15 @@ function checkGameOver(){
             ease:Back.easeOut
             });
         clearInterval(dropDown);
-        var r= $('<br> <button type="button" class="btn btn-primary" onclick="gameRestart(this)">Restart</button>');
+        var r= $('<br> <button type="button" class="btn btn-primary btn-restart" onclick="gameRestart(this)">Press any key to restart</button>');
         $("h1").append(r);
     }
 
 }
+function hideCard(){
+    $(".card").hide();
+}
+
 
 ///////////////////////////////////////
 /////////////touch event///////////////

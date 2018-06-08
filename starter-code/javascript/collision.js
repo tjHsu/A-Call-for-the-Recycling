@@ -49,3 +49,23 @@ function isCollide(a, b) {
 //     interval_id = setInterval(shuttleUp(),50);
 //     console.log("hold!!!!!!");
 //   }
+
+$(function() {
+    $(document).keydown(function(e) {
+        e.preventDefault();
+        switch (e.which) {
+            case 32: // up key
+                // alert("up key event called")
+                $(".btn-success").trigger("click")
+                $(".btn-warning").trigger("click")
+                $(".btn-restart").trigger("click")
+                break;
+            
+            default:
+                $(".btn-restart").trigger("click")
+                break;
+
+
+        }
+    });
+});

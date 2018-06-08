@@ -30,6 +30,45 @@ h1{
     /* text-shadow: #355A60; */
 }
 
+h2{
+    color: ghostwhite;
+    position: fixed;
+    top:25vh;
+    left:10vw;
+}
+
+.card{
+    position: fixed;
+    top: 20vh;
+    left: 15vw;
+}
+
+.card-img-top{
+    width: 150px;
+    position: relative;
+    left:20%;
+    margin-top: 5%;
+}
+
+span{
+    border-radius:5px;
+}
+
+#space{
+    padding: 5px;
+    border: 1px solid white;
+    /* background: white; */
+    /* display: inline-block; */
+}
+
+#again{
+    padding: 5px;
+    border: 1px solid rgb(88, 63, 17);
+
+    background: rgb(243, 187, 82);
+    /* display: inline-block; */
+}
+
 @media (min-width:800px) {
     .btn-danger{
         visibility: hidden;
