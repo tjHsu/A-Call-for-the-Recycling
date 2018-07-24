@@ -22,5 +22,5 @@ Try to land the rocket on an ocean platform. To achieve this, players can contro
 
 ## Run
 
-After forked and cloned the project, open the file with browser.
+After forked and cloned the project, open the file with the browser.
 
